@@ -52,17 +52,18 @@ int main()
 		CloseHandle(hNamedPipe);
 	}
 }
-int isParsable(char* text)
+BOOL isParsable(char* text)
 {
 	for (size_t i = 0; i < SIZE_BUFFER; i++)
 	{
 		if (text[i] >= '0' && text[i] <= '9')
 		{
-			return 1;
+
 		}
 		else
 		{
 			return 0;
 		}
 	}
+	return 1;
 }
