@@ -27,6 +27,11 @@ int main()
 		if (Connected)
 		{
 			SuccessRead = ReadFile(hNamedPipe, text, sizeBuffer, &readen, NULL);
+			char c = ' ';
+			for (size_t i = 0; i < sizeBuffer; i++)
+			{
+				c = text[i];
+			}
 			if (SuccessRead)
 			{
 				printf("\nClient: %s\n",text);
@@ -54,11 +59,17 @@ int main()
 }
 BOOL isParsable(char* text)
 {
+	char c = ' ';
 	for (size_t i = 0; i < SIZE_BUFFER; i++)
 	{
+		c = text[i];
 		if (text[i] >= '0' && text[i] <= '9')
 		{
 
+		}
+		else if (text[i] == -52 || text[i] == '\0')
+		{
+			break;
 		}
 		else
 		{
